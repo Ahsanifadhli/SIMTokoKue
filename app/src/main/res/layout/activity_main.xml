@@ -1,173 +1,377 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:id="@+id/drawer_layout" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F47B20"
-    android:fillViewport="true"
-    tools:context="MainActivity">
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
-    <LinearLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:background="#F5F5F5">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/logo_card"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="64dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="4dp">
-
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="150dp"
-                android:layout_height="80dp"
-                android:contentDescription="Logo Chiffon Wonosari"
-                android:padding="8dp"
-                android:src="@drawable/logo_toko_kue" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <TextView
-            android:id="@+id/tv_welcome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="24dp"
-            android:text="Welcome Back!"
-            android:textColor="@android:color/white"
-            android:textSize="28sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tv_subtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="8dp"
-            android:text="Sign In to Continue"
-            android:textColor="@android:color/white"
-            android:textSize="16sp" />
-
-        <LinearLayout
-            android:id="@+id/form_container"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="32dp"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_top_white_bg"
-            android:orientation="vertical"
-            android:padding="24dp">
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            app:elevation="4dp">
 
-            <TextView
-                android:id="@+id/tv_email_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/et_email"
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/edittext_rounded_bg"
-                android:drawableEnd="@drawable/baseline_email_24"
-                android:drawablePadding="12dp"
-                android:hint="Enter your email"
-                android:inputType="textEmailAddress"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp" />
+                android:layout_height="?attr/actionBarSize">
 
-            <TextView
-                android:id="@+id/tv_password_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Password"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                <ImageView
+                    android:id="@+id/img_logo"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/logo_toko_kue" />
 
-            <EditText
-                android:id="@+id/et_password"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/edittext_rounded_bg"
-                android:drawableEnd="@drawable/baseline_lock_24"
-                android:drawablePadding="12dp"
-                android:hint="Enter your password"
-                android:inputType="textPassword"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp" />
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/img_profile"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="16dp"
+                    android:padding="2dp"
+                    android:src="@drawable/outline_account_box_24"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.SmallComponent"
+                    app:strokeColor="#E0E0E0"
+                    app:strokeWidth="1dp" />
 
-            <RelativeLayout
+            </com.google.android.material.appbar.MaterialToolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp">
+                android:orientation="vertical"
+                android:padding="12dp">
 
-                <CheckBox
-                    android:id="@+id/cb_remember_me"
-                    android:layout_width="wrap_content"
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
-                    android:text="Remamber Me" />
+                    android:scrollbars="none">
 
-                <TextView
-                    android:id="@+id/tv_forgot_password"
-                    android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="2dp"
+                            app:strokeColor="#F47B20"
+                            app:strokeWidth="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="16dp"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Totall Revenue"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:text="8.98 Jt"
+                                    android:textSize="28sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:background="@drawable/dashboard_summary_card_bg"
+                                    android:paddingTop="8dp"
+                                    android:paddingBottom="8dp"
+                                    android:paddingStart="24dp"
+                                    android:paddingEnd="24dp"/>
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="2dp"
+                            app:strokeColor="#F47B20"
+                            app:strokeWidth="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="16dp"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Totall Profit"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:text="8.98 Jt"
+                                    android:textSize="28sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black"
+                                    android:background="@drawable/dashboard_summary_card_bg"
+                                    android:paddingTop="8dp"
+                                    android:paddingBottom="8dp"
+                                    android:paddingStart="24dp"
+                                    android:paddingEnd="24dp"/>
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:text="Forgot Password?"
-                    android:textColor="#F47B20" />
-            </RelativeLayout>
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp"
+                    android:baselineAligned="false">
 
-            <Button
-                android:id="@+id/btn_sign_in"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginTop="24dp"
-                android:backgroundTint="#F47B20"
-                android:text="Sign In >"
-                android:textColor="@android:color/white"
-                app:cornerRadius="12dp" />
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="4dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
 
-            <TextView
-                android:id="@+id/tv_copyright"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="32dp"
-                android:text="© 2025 Chiffon Wonosari Krumpul | v1.0.0"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="12sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Profit and Loss"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@android:color/black"/>
 
-            <TextView
-                android:id="@+id/tv_privacy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="16dp"
-                android:text="Privacy Policy | Terms of Service"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="12sp" />
+                            <ImageView
+                                android:id="@+id/chart_line"
+                                android:layout_width="match_parent"
+                                android:layout_height="150dp"
+                                android:layout_marginTop="8dp"
+                                android:scaleType="fitXY"
+                                android:contentDescription="Placeholder untuk Line Chart"/>
 
-        </LinearLayout>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
 
-    </LinearLayout>
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_margin="4dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp">
 
-</ScrollView>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:gravity="center_horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Branch Perform..."
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@android:color/black"/>
+
+                            <ImageView
+                                android:id="@+id/chart_pie"
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:layout_marginTop="8dp"
+                                android:src="@drawable/outline_insert_chart_24"
+                                android:contentDescription="Placeholder untuk Pie Chart"/>
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_margin="4dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Top Selling Product"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:layout_marginBottom="12dp"/>
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TableRow
+                                android:background="@drawable/dashboard_table_header_bg"
+                                android:padding="8dp">
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="2"
+                                    android:text="Products"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/darker_gray"/>
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:text="Qty Sold"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/darker_gray"
+                                    android:gravity="end"/>
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1.5"
+                                    android:text="Revenue"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/darker_gray"
+                                    android:gravity="end"/>
+                            </TableRow>
+
+                            <TableRow android:padding="8dp">
+                                <TextView android:text="Chiffon Uk 15 Ori" android:layout_weight="2" android:textColor="@android:color/black"/>
+                                <TextView android:text="1200" android:layout_weight="1" android:gravity="end" android:textColor="@android:color/black"/>
+                                <TextView android:text="4.500.000" android:layout_weight="1.5" android:gravity="end" android:textColor="@android:color/black"/>
+                            </TableRow>
+                            <View android:layout_height="1dp" android:background="#F0F0F0"/>
+
+                            <TableRow android:padding="8dp">
+                                <TextView android:text="Brownies" android:layout_weight="2" android:textColor="@android:color/black"/>
+                                <TextView android:text="1198" android:layout_weight="1" android:gravity="end" android:textColor="@android:color/black"/>
+                                <TextView android:text="4.378.000" android:layout_weight="1.5" android:gravity="end" android:textColor="@android:color/black"/>
+                            </TableRow>
+                            <View android:layout_height="1dp" android:background="#F0F0F0"/>
+
+                            <TableRow android:padding="8dp">
+                                <TextView android:text="Bolu Kotak" android:layout_weight="2" android:textColor="@android:color/black"/>
+                                <TextView android:text="1150" android:layout_weight="1" android:gravity="end" android:textColor="@android:color/black"/>
+                                <TextView android:text="4.250.000" android:layout_weight="1.5" android:gravity="end" android:textColor="@android:color/black"/>
+                            </TableRow>
+                            <View android:layout_height="1dp" android:background="#F0F0F0"/>
+
+                            <TableRow android:padding="8dp">
+                                <TextView android:text="Lapis Mandarin" android:layout_weight="2" android:textColor="@android:color/black"/>
+                                <TextView android:text="987" android:layout_weight="1" android:gravity="end" android:textColor="@android:color/black"/>
+                                <TextView android:text="3.700.000" android:layout_weight="1.5" android:gravity="end" android:textColor="@android:color/black"/>
+                            </TableRow>
+                            <View android:layout_height="1dp" android:background="#F0F0F0"/>
+
+                            <TableRow android:padding="8dp">
+                                <TextView android:text="Chiffon Uk 18 Extra" android:layout_weight="2" android:textColor="@android:color/black"/>
+                                <TextView android:text="843" android:layout_weight="1" android:gravity="end" android:textColor="@android:color/black"/>
+                                <TextView android:text="2.900.000" android:layout_weight="1.5" android:gravity="end" android:textColor="@android:color/black"/>
+                            </TableRow>
+
+                        </TableLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="#333333"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chiffon Krumpul Wonosari"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Chiffon Krumpul Wonosari adalah salah satu produk unggulan dari Roti Wonosari, sebuah toko roti lokal yang berada di Wonosari, Gunungkidul. Produk ini berupa bolu chiffon dengan tekstur lembut dan ringan khas kue Chiffon dengan cita rasa yang sesuai dengan selera lokal."
+                        android:textColor="#E0E0E0"
+                        android:textSize="12sp"
+                        android:lineSpacingExtra="4dp"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#555555"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hallo Chief - Layanan Pelanggan"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

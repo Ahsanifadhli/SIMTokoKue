@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SIMTokoKue</string>
+    <string name="drawer_open">Buka navigation drawer</string>
+    <string name="drawer_close">Tutup navigation drawer</string>
 </resources>
