@@ -16,9 +16,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        // Tambahan untuk MPAndroidChart (Format Kotlin)
+        maven { url = uri("https://jitpack.io") }
     }
 }
 
 rootProject.name = "SIMTokoKue"
 include(":app")
- 

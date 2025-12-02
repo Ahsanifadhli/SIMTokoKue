@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_dashboard"
             android:title="Dashboard" />
+
         <item
             android:id="@+id/nav_products"
+            android:icon="@drawable/outline_add_24"
             android:title="Data Produk" />
+
+        <!-- MENU BARU: TRANSAKSI -->
+        <item
+            android:id="@+id/nav_transaction"
+            android:icon="@drawable/ic_shopping_cart"
+            android:title="Transaksi Kasir" />
+
+        <item
+            android:id="@+id/nav_expense"
+            android:title="Catat Pengeluaran" />
+
+        <item
+            android:id="@+id/nav_history"
+            android:title="Riwayat Transaksi" />
+
         <item
             android:id="@+id/nav_reports"
             android:title="Laporan" />
@@ -16,6 +34,7 @@
         <menu>
             <item
                 android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_delete"
                 android:title="Logout" />
         </menu>
     </item>

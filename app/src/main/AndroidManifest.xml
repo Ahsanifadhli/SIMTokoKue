@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Izin Internet (Untuk fitur Kurs Mata Uang) -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,11 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SIMTokoKue">
 
-        <!--
-          LoginActivity SEKARANG MENJADI LAUNCHER
-          - exported="true"
-          - Memiliki <intent-filter>
-        -->
+        <!-- 1. LOGIN (Pintu Masuk Utama) -->
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -26,13 +25,29 @@
             </intent-filter>
         </activity>
 
-        <!--
-          MainActivity HANYA ACTIVITY BIASA
-          - exported="false" (lebih aman)
-          - TIDAK memiliki <intent-filter>
-        -->
+        <!-- 2. DASHBOARD UTAMA -->
         <activity
             android:name=".MainActivity"
+            android:exported="false" />
+
+        <!-- 3. FITUR PRODUK -->
+        <activity
+            android:name=".ProductManagementActivity"
+            android:exported="false" />
+
+        <!-- 4. FITUR TRANSAKSI (KASIR) -->
+        <activity
+            android:name=".TransactionActivity"
+            android:exported="false" />
+
+        <!-- 5. FITUR PENGELUARAN -->
+        <activity
+            android:name=".ExpenseActivity"
+            android:exported="false" />
+
+        <!-- 6. FITUR RIWAYAT (Hanya Satu Kali Saja!) -->
+        <activity
+            android:name=".HistoryActivity"
             android:exported="false" />
 
     </application>
