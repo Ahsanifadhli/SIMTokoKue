@@ -115,7 +115,8 @@
             app:backgroundTint="#F57C00"
             app:tint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@android:drawable/ic_input_add"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
