@@ -25,9 +25,7 @@
             android:id="@+id/nav_history"
             android:title="Riwayat Transaksi" />
 
-        <item
-            android:id="@+id/nav_reports"
-            android:title="Laporan" />
+
     </group>
 
     <item android:title="Akun">

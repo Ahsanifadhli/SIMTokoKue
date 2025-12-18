@@ -41,10 +41,7 @@
                 android:textColor="@color/black"
                 android:gravity="center" />
 
-            <View
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:background="@android:color/darker_gray" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -66,14 +63,7 @@
                 android:hint="Pencarian..."
                 android:inputType="text" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_marginStart="8dp"
-                android:text="Filter"
-                android:textSize="10sp"
-                android:backgroundTint="@android:color/white"
-                android:textColor="@color/black"/>
+
         </LinearLayout>
 
         <androidx.core.widget.NestedScrollView
@@ -93,17 +83,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:listitem="@layout/item_product"
-                    android:nestedScrollingEnabled="false" />
+                    android:nestedScrollingEnabled="false"
+                    app:srcCompat="@android:drawable/ic_input_add" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnLoadMore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Load More"
-                    android:layout_gravity="center"
-                    android:layout_marginVertical="20dp"
-                    app:backgroundTint="#F57C00"
-                    app:cornerRadius="8dp"/>
+
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 
@@ -115,7 +98,8 @@
             app:backgroundTint="#F57C00"
             app:tint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@android:drawable/ic_input_add"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

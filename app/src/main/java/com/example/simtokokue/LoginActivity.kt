@@ -2,8 +2,10 @@ package com.example.simtokokue
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -14,6 +16,8 @@ class LoginActivity : AppCompatActivity() {
     private val ADMIN_PASSWORD = "eatyourcake"
     // -------------------------------------------------
 
+    private var isPasswordVisible = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Menghubungkan ke file layout activity_login.xml
@@ -23,6 +27,10 @@ class LoginActivity : AppCompatActivity() {
         val etUsername = findViewById<EditText>(R.id.et_username)
         val etPassword = findViewById<EditText>(R.id.et_password)
         val btnSignIn = findViewById<Button>(R.id.btn_sign_in)
+        val btnTogglePassword = findViewById<ImageView>(R.id.btn_toggle_password)
+
+        // Setup toggle password visibility
+        setupPasswordToggle(etPassword, btnTogglePassword)
 
         // Beri aksi klik pada tombol sign in
         btnSignIn.setOnClickListener {
@@ -52,6 +60,26 @@ class LoginActivity : AppCompatActivity() {
                 // Jika GAGAL:
                 Toast.makeText(this, "Username atau Password salah.", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    private fun setupPasswordToggle(etPassword: EditText, btnTogglePassword: ImageView) {
+        btnTogglePassword.setOnClickListener {
+            if (isPasswordVisible) {
+                // Hide password
+                etPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                btnTogglePassword.setImageResource(R.drawable.outline_visibility_off_24)
+            } else {
+                // Show password
+                etPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                btnTogglePassword.setImageResource(R.drawable.outline_visibility_24)
+            }
+
+            // Move cursor to end
+            etPassword.setSelection(etPassword.text.length)
+
+            // Toggle state
+            isPasswordVisible = !isPasswordVisible
         }
     }
 }

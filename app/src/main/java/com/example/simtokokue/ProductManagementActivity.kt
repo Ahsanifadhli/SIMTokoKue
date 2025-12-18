@@ -29,8 +29,6 @@ class ProductManagementActivity : AppCompatActivity() {
     private lateinit var fabAdd: FloatingActionButton
     private lateinit var productAdapter: ProductAdapter
 
-    // HAPUS variabel "private val productList" yang lama!
-    // Kita akan pakai langsung dari DataRepository
 
     private lateinit var etSearch: EditText
 
